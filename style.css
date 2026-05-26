@@ -1,0 +1,898 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+ 
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.esports {
+    background-color: black;
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main   main"
+        "cards  cards"
+        "section section"
+        "sub-content sub-content"
+        "footer footer";
+}
+ 
+.header {
+    font-family: "New Rocker", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    height: 100px;
+}
+ 
+.logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-weight: 200;
+    padding: 10px;
+}
+ 
+.links-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+ 
+nav {
+    display: flex;
+    font-size: 15px;
+    justify-content: flex-end;    
+    width: 100%;
+}
+ 
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+ 
+nav li {
+    height: 50px;
+}
+ 
+nav a {
+    position: relative;
+    transition: 0.15s;
+    width: 100px;
+    height: 40px;
+    padding: 0 30px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+ 
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: rgb(168, 42, 42);
+    transition: width 0.3s ease;
+}
+ 
+nav a:hover::after {
+    width: 70%;
+}
+ 
+nav a:hover {
+    color: rgb(168, 42, 42);
+    transition: 0.2s;
+    transform: translateY(-3px);
+}
+ 
+.main {
+    grid-area: main;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+ 
+.bg-video {
+    display: block;
+    width: 100%;
+    height: 675px;
+    object-fit: cover;
+}
+ 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.overlay a {
+    padding: 20px 40px;
+    background-color: rgb(168, 42, 42);
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    border-radius: 6px;
+}
+ 
+.overlay a:hover {
+    background-color: white;
+    color: black;
+}
+
+.footer a:hover {
+    color: rgb(168, 42, 42);
+}
+
+.overlay:active, 
+.footer a:active {
+    opacity: 0.6;
+}
+ 
+.card-grid {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 24px;
+    background-color: hsl(0, 0%, 100%);
+}
+.card-grid-esports {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 24px;
+    background-color: black;
+}
+ 
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 120px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.esports-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 120px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.esports-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+}
+
+.esports-card h2 {
+    font-family: "New Rocker", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: white;
+}
+ 
+.card h2 {
+    font-size: 18px;
+}
+ 
+.card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+}
+ 
+.card-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+ 
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+ 
+.card-img img:hover {
+    transform: scale(1.1);
+}
+ 
+.main-content {
+    grid-area: section;
+    width: 100%;
+    height: 675px;
+    overflow: hidden;
+}
+ 
+.main-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sub-content {
+    grid-area: sub-content;
+    width: 100%;
+    padding: 24px;
+    background-color: white;
+    background-color: black;
+    color: white;
+}
+ 
+.footer {
+    grid-area: footer;
+    padding: 24px 16px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+ 
+.footer p {
+    text-align: center;
+    padding: 0;
+    font-size: 14px;
+    color: white;
+}
+ 
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+ 
+.footer a {
+    position: relative;
+    transition: 0.15s;
+    width: auto;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+ 
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: rgb(168, 42, 42);
+    transition: width 0.3s ease;
+}
+ 
+.footer a:hover::after {
+    width: 70%;
+}
+
+input {
+    max-width: 230px;
+    padding: 5px;
+    font-size: 15px;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    transition: ease 0.25s;
+    background-color: rgb(255, 255, 255);
+}
+ 
+.form-page {
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f0f8e4103218667.5f480507a3e81.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.form-box {
+    background: rgba(0, 0, 0, 0.5);  
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+}
+
+.form-box input[type="text"],
+.form-box input[type="email"] {
+    width: 100%;
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 8px;
+}
+
+.form-box input[type="text"]::placeholder,
+.form-box input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-box input[type="checkbox"] {
+    width: auto;
+    max-width: auto;
+    margin-right: 8px;
+}
+
+.apply input {
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    width: 75px;
+    padding: 7px;
+    text-align: center;
+}
+ 
+.apply input:hover {
+    background-color: rgb(168, 42, 42);
+    transition: 0.4s;
+    color: black;
+    transform: translateY(-5px);
+}
+
+.about-bg {
+    background-color: #0a0a0a;
+    background-image: 
+        radial-gradient(ellipse at top right, rgba(168, 42, 42, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(168, 42, 42, 0.2) 0%, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.about h2 {
+    font-family: "New Rocker";
+    font-size: 38px;
+    color: rgb(168, 42, 42);
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top: 30px;
+    text-shadow: 0 0 10px rgba(168, 42, 42, 0.5);
+}
+
+.about p {
+    font-family: Georgia, serif;
+    color: rgb(220, 220, 220);
+    font-size: 16px;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+}
+
+.merch-page{
+    background-attachment: fixed;
+    min-height: 100px;
+    background-color: #0a0a0a;
+    background-image: 
+        radial-gradient(ellipse at top left, rgba(168, 42, 42, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(168, 42, 42, 0.2) 0%, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;  
+}
+
+.merch {
+    text-align: center;
+    font-family: "New Rocker", system-ui;
+    font-size: 48px;
+    color: rgb(168, 42, 42);
+    margin-bottom: 10px;
+}
+
+.merch-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.merch-box {
+    background: rgba(0, 0, 0, 0.5);  
+    backdrop-filter: blur(10px);       
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+}
+
+.merch-box input[type="text"], 
+.merch-box input[type="email"] {
+    width: 100%;
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 8px;
+}
+
+.merch-box input[type="text"]::placeholder,
+.merch-box input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.merch-box input[type="checkbox"] {
+    width: auto;
+    max-width: auto;
+    margin-right: 8px;
+}
+
+#note {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.radio {
+    margin-left: 30px;
+}
+
+.merch-apply input {
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    width: 150px;
+    padding: 7px;
+    text-align: center;
+    margin-left: 40px;
+}
+ 
+.merch-apply input:hover {
+    background-color: rgb(168, 42, 42);
+    transition: 0.4s;
+    color: black;
+    transform: translateY(-5px);
+}
+
+.merch-apply input:active {
+    opacity: 0.7;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff0000; 
+}
+
+.product-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.product-name {
+  font-family: 'New Rocker';
+  font-size: 1rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.product-price {
+  color: #ff4444;
+  font-weight: bold;
+  text-align: center;
+}
+
+.product-card label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.esports-hero {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 3px solid rgb(168, 42, 42);
+}
+
+.esports-hero h1 {
+    font-family: "New Rocker";
+    font-size: 48px;
+    color: rgb(168, 42, 42);
+    margin-bottom: 10px;
+}
+
+.esports-hero p {
+    color: white;
+    font-size: 16px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: "New Rocker";
+    font-size: 32px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 30px 20px 10px;
+    border-bottom: 2px solid rgb(168, 42, 42);
+    margin-bottom: 0;
+}
+
+.roster-section {
+    background-color: rgb(0, 0, 0);
+    padding: 30px 24px;
+}
+
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.player-card {
+    background-color: black;
+    border: 1px solid rgb(168, 42, 42);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgb(168, 42, 42);
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-family: "New Rocker", system-ui;
+    color: white;
+}
+
+.player-card h3 {
+    font-size: 18px;
+     margin-bottom: 4px;
+    color: white;
+}
+
+.player-card .role {
+    font-size: 13px;
+    color: rgb(168, 42, 42);
+    margin-bottom: 4px;
+}
+
+.player-card .game-tag {
+    font-size: 12px;
+    color: rgb(180, 180, 180);
+}
+
+.tournament-section {
+    background-color: black;
+    padding: 30px 24px;
+}
+
+.tournament-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    color: white;
+    min-width: 500px;
+}
+
+.tournament-table th {
+    background-color: rgb(168, 42, 42);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.tournament-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgb(40, 40, 40);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.tournament-table tr:nth-child(even) {
+    background-color: rgb(20, 20, 20);
+}
+
+.status-win {
+    color: rgb(50, 200, 50);
+    font-weight: bold;
+}
+
+.status-upcoming {
+    color: rgb(255, 200, 0);
+    font-weight: bold;
+}
+
+.status-loss {
+    color: rgb(200, 50, 50);
+    font-weight: bold;
+}
+
+.recruit-section {
+    background-color: rgb(168, 42, 42);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.recruit-section h2 {
+    font-family: "New Rocker", system-ui;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.recruit-section p {
+    color: white;
+    font-size: 15px;
+    max-width: 500px;
+    text-align: center;
+    padding: 0 0 20px;
+}
+
+.recruit-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.recruit-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.nav-active {
+    color: rgb(168, 42, 42) ;
+    border-bottom: 2px solid rgb(168, 42, 42);
+}
+
+
+@media (max-width: 500px) {
+ 
+    .page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "cards"
+            "section"
+            "sub-content"
+            "footer";
+    }
+ 
+    .header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 16px;
+        gap: 8px;
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .logo {
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+    }
+ 
+    .links-container {
+        width: 100%;
+        position: static;
+        justify-content: center;
+        align-items: center;
+    }
+ 
+    nav {
+        justify-content: center;
+        align-self: center;
+        flex-wrap: wrap;
+        gap: 4  px;
+        width: 100%;
+    }
+ 
+    nav a {
+        width: auto;
+        padding: 6px 10px;
+        height: auto;
+        justify-content: center;
+    }
+ 
+    .bg-video {
+        height: 300px;
+    }
+ 
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+ 
+    .card-img {
+        height: 250px;
+    }
+
+    .game-card {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+ 
+    .game-card img {
+        height: 250px;
+    }
+
+    .products-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .tournament-table {
+        min-width: unset;           
+        width: 100%;
+    }
+
+    .tournament-table th,
+    .tournament-table td {
+        padding: 8px 10px;
+        font-size: 12px;
+        white-space: normal;        
+    }
+
+    .tournament-table th:nth-child(3),
+    .tournament-table td:nth-child(3) {
+        display: none;
+    }
+    
+    .main-content {
+        height: 250px;
+    }
+ 
+    .overlay a {
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+ 
+    input {
+        max-width: 100%;
+        width: 100%;
+        color: black;
+    }
+ 
+    .form {
+        width: 100%;
+        padding: 24px;
+    }
+ 
+    .footer {
+        padding: 24px 16px;
+        gap: 12px;
+    }
+ 
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+ 
+    .footer a {
+        height: auto;
+        padding: 8px 16px;
+    }
+ 
+    .footer p {
+        font-size: 13px;
+    }
+}
